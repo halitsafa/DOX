@@ -93,9 +93,10 @@ class Player {
                 bullet.remove()
                 clearInterval(bulletInterval)
             }
-            for (var player in this.map.players)
+            for (var i in this.map.players)
             {
-                if (player .isNpc === true && bulletPosition == player.playerPosition.x && bullet.style.top == player.playerPosition.y)
+                var player = this.map.players[i]
+                if (player, player.isNpc === true && bulletPosition == player.playerPosition.x && parseFloat(bullet.style.top) == player.playerPosition.y)
                 {
                     player.isShot = true
                     player.element.remove()
@@ -155,7 +156,8 @@ function shootPressed(player, event)
 
 var map = new Gamemap()
 var player = new Player(map)
-var npc = new Player(map, isNpc=true)
+var npc = new Player(map)
+npc.isNpc = true
 npc.updatePlayerPosition(380, 200)
 var side = "down";
 var npcInterval = setInterval(function() {
